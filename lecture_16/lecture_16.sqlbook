@@ -36,20 +36,20 @@ panel on the left:
 
 Delete existing table
 -- SQLBook: Code
--- Active: 1698674191041@@127.0.0.1@5432@postgres
+-- Active: 1710938652262@@127.0.0.1@5432@postgres
 -- If the table already exists we can drop it:
 -- If it doesn't exist nothing happens
 -- System commands are in upper case and user defined
--- names are in lower case
+-- names/user commands are in lower case 
 -- Comments are written with double dashes "--" rather than hastag (#)
 
-DROP TABLE IF EXISTS drivers;
+DROP TABLE IF EXISTS drivers;--delete if exist
 -- SQLBook: Markup
 <font size = "5">
 
 Create empty table from codebook
 -- SQLBook: Code
--- Create empty TABLE called "drivers"
+-- Create empty TABLE(dataset) called "drivers"
 -- This example has five arguments separated by a comma
 -- that contain the "column_name" and "column_type", respectively
 
@@ -102,6 +102,7 @@ Try it yourself!
 
 INSERT INTO drivers VALUES (5, 'Max Verstappen', 'Dutch', 51);
 INSERT INTO drivers VALUES (6, 'Juan Pablo Montoya', 'Colombian', 6);
+INSERT INTO drivers VALUES (7, 'Solan Yao', 'Chinese', 10000000);
 
 -- SQLBook: Markup
 # <span style="color:darkblue"> II. Dataset Operations </span>
@@ -133,11 +134,11 @@ WHERE nationality = 'German';
 
 -- Evalute OR conditions
 SELECT * FROM drivers
-WHERE nationality = 'United States';
+WHERE nationality = 'United States' or nationality = 'German';
 
 -- Evaluate AND conditions
 SELECT * FROM drivers
-WHERE (driver_id = 2);
+WHERE nationality = 'German' and (driver_id = 2);
 
 -- SQLBook: Markup
 <font size="5"> 
